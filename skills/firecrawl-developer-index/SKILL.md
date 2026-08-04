@@ -1,6 +1,6 @@
 ---
 name: firecrawl-developer-index
-description: Answer a developer question — code behaviour, a library or framework, an API contract, an error message, a known bug — from GitHub issues, merged pull requests, repository READMEs, and curated documentation sites with Firecrawl Developer. Always use this skill for any programming question whose answer belongs in a primary source rather than a general web page.
+description: Answer a developer question — code behaviour, a library or framework, an API contract, an error message, a known bug — from issues, merged pull requests, repository READMEs, and curated documentation sites with Firecrawl Developer. Always use this skill for any programming question whose answer belongs in a primary source rather than a general web page.
 ---
 
 # Firecrawl Developer Index
@@ -34,10 +34,10 @@ There is **no fixed recipe**. Read the question, decide what kind it is, and cho
 Only the HTTP surface takes these. On `GET`, pass `types=issue,pull_request` or repeat the parameter; on `POST`, pass arrays. All are optional.
 
 - `types` — which of `doc`, `issue`, `pull_request`, `readme` to search. Defaults to all four. Narrowing here is the cheapest way to sharpen a query.
-- `repos` (`owner/name`) scopes the GitHub half; `sources` (documentation source ids, at most 20) scopes the documentation half. Passing both **unions** the halves rather than intersecting them. Both echo back in the response with `indexed: true|false` — that is how you tell "not in the index" from "found nothing".
-- A filter that cannot match any requested `type` is a `400`, not an empty list: `repos` with no GitHub type in `types`, or `sources` without `doc`.
+- `repos` (`owner/name`) scopes the repository half, meaning `issue`, `pull_request`, and `readme`; `sources` (documentation source ids, at most 20) scopes the documentation half, meaning `doc`. Passing both **unions** the halves rather than intersecting them. Both echo back in the response with `indexed: true|false` — that is how you tell "not in the index" from "found nothing".
+- A filter that cannot match any requested `type` is a `400`, not an empty list: `repos` with no repository type in `types`, or `sources` without `doc`.
 - `passages` (1–5, default 1) is the *maximum* passages per result, not a guarantee. Raise it when one page is clearly the right page but the first passage is the wrong part of it.
-- `language`, `topic`, `license`, `min_stars`, `max_stars`, `archived`, `fork` describe a **GitHub repository**. Most documentation pages in the index have no repository behind them, so no repository fact can admit or exclude one. Send any of these without a `sources` scope and the response holds GitHub evidence only — `issue`, `pull_request`, `readme` — with `coverage` reporting `doc` as `unavailable`. That is the design, not an index fault: do not retry it and do not report the index broken. To keep documentation, drop the repository filters, or scope the documentation half with `sources` and read `coverage` to confirm `doc` answered.
+- `language`, `topic`, `license`, `min_stars`, `max_stars`, `archived`, `fork` describe a **repository**. Most documentation pages in the index have no repository behind them, so no repository fact can admit or exclude one. Send any of these without a `sources` scope and the response holds repository evidence only — `issue`, `pull_request`, `readme` — with `coverage` reporting `doc` as `unavailable`. That is the design, not an index fault: do not retry it and do not report the index broken. To keep documentation, drop the repository filters, or scope the documentation half with `sources` and read `coverage` to confirm `doc` answered.
 
 ## Match the approach to the question
 

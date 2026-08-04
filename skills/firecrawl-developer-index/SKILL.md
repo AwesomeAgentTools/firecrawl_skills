@@ -37,7 +37,7 @@ Only the HTTP surface takes these. On `GET`, pass `types=issue,pull_request` or 
 - `repos` (`owner/name`) scopes the GitHub half; `sources` (documentation source ids, at most 20) scopes the documentation half. Passing both **unions** the halves rather than intersecting them. Both echo back in the response with `indexed: true|false` — that is how you tell "not in the index" from "found nothing".
 - A filter that cannot match any requested `type` is a `400`, not an empty list: `repos` with no GitHub type in `types`, or `sources` without `doc`.
 - `passages` (1–5, default 1) is the *maximum* passages per result, not a guarantee. Raise it when one page is clearly the right page but the first passage is the wrong part of it.
-- `language`, `topic`, `license`, `min_stars`, `max_stars`, `archived`, `fork` describe a **repository**. Most documentation pages have no repository behind them, so sending any of these drops documentation entirely and reports `doc` as `unavailable`. Pay that price deliberately.
+- `language`, `topic`, `license`, `min_stars`, `max_stars`, `archived`, `fork` describe a **GitHub repository**. Most documentation pages in the index have no repository behind them, so no repository fact can admit or exclude one. Send any of these without a `sources` scope and the response holds GitHub evidence only — `issue`, `pull_request`, `readme` — with `coverage` reporting `doc` as `unavailable`. That is the design, not an index fault: do not retry it and do not report the index broken. To keep documentation, drop the repository filters, or scope the documentation half with `sources` and read `coverage` to confirm `doc` answered.
 
 ## Match the approach to the question
 
@@ -53,7 +53,7 @@ Only the HTTP surface takes these. On `GET`, pass `types=issue,pull_request` or 
 
 ## Principles
 
-- **Read `coverage` before concluding a source doesn't exist.** Every response reports `ok` | `degraded` | `unavailable` | `skipped` per type. `skipped` means your own `types` excluded it. `degraded` or `unavailable` means the gap came from the index or from a filter, not from your query — widen or retry rather than reporting that nothing exists. `ok` with no hits of that type is a genuine miss: rephrase.
+- **Read `coverage` before concluding a source doesn't exist.** Every response reports `ok` | `degraded` | `unavailable` | `skipped` per type. `skipped` means your own `types` value did not ask for that type. `degraded` or `unavailable` means the gap came from the index **or from a filter you sent**, not from your query — drop the filter or widen, rather than retrying the same call or reporting that nothing exists. `ok` with no hits of that type is a genuine miss: rephrase.
 - **Quote the passage, cite the `url`.** The passages are the evidence; hand them over rather than paraphrasing them into a claim the reader can't check. `title` is frequently absent on `doc` results — fall back to `url`.
 - **A merge supersedes a report.** When an issue and a pull request disagree, the merged pull request is the current behaviour. Say which one you read.
 - **Scope last, not first.** Search the whole index, then narrow with `types`, `repos`, or `sources` once you know what the hits look like. Scoping first hides the result that would have told you where to look.

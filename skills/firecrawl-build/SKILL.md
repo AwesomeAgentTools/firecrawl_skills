@@ -63,8 +63,8 @@ Route from that answer to the narrowest endpoint that fits:
 
 Two indexes sit beside those endpoints and are not queried by `/search`:
 
-- the **research paper index** when the query is for published papers — biomedical, clinical, and life-science literature or arXiv preprints — rather than web pages
-- the **developer index** when the answer belongs in an issue, pull request, README, or documentation page
+- the **research paper index** when the query is for published papers — biomedical, clinical, and life-science literature or arXiv preprints — rather than web pages (`firecrawl_research_*`, CLI `firecrawl research`). Session recipes live in `firecrawl/cli`.
+- the **developer index** when the answer belongs in an issue, pull request, README, or documentation page (`GET` or `POST /v2/search/developer`, CLI `firecrawl developer`). Session recipes live in `firecrawl/cli`.
 
 ## Required Intake
 
@@ -89,8 +89,6 @@ For the full checklist, see [references/project-intake.md](references/project-in
 | **Implement single-page extraction**                 | [firecrawl-build-scrape](../firecrawl-build-scrape/SKILL.md)             |
 | **Implement discovery-first flows**                  | [firecrawl-build-search](../firecrawl-build-search/SKILL.md)             |
 | **Implement post-scrape browser actions**            | [firecrawl-build-interact](../firecrawl-build-interact/SKILL.md)         |
-| **Search published research papers (biomedical, clinical, life-science, arXiv)** | [firecrawl-research-index](../firecrawl-research-index/SKILL.md) |
-| **Answer developer questions from issues, PRs, READMEs, or docs** | [firecrawl-developer-index](../firecrawl-developer-index/SKILL.md) |
 | **Verify the integration actually works**            | [references/verification.md](references/verification.md)                 |
 
 ## Docs Are the Source of Truth

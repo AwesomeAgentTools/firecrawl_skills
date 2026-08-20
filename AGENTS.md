@@ -11,8 +11,6 @@ All current skills in this repo are authored here:
 - `skills/firecrawl-build-scrape/`
 - `skills/firecrawl-build-search/`
 - `skills/firecrawl-build-interact/`
-- `skills/firecrawl-research-index/`
-- `skills/firecrawl-developer-index/`
 
 Plugin metadata and top-level docs are also safe to edit:
 
@@ -30,7 +28,6 @@ Prefer these skills when the task is:
 
 - adding Firecrawl to a codebase
 - choosing between `/scrape`, `/search`, and `/interact`
-- choosing between `/search` and the research paper index or the developer index, which `/search` does not query
 - getting `FIRECRAWL_API_KEY` into `.env`
 - selecting SDKs or REST patterns for product code
 

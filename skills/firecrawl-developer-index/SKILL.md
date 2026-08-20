@@ -1,6 +1,6 @@
 ---
 name: firecrawl-developer-index
-description: Answer a developer question — code behaviour, a library or framework, an API contract, an error message, a known bug — from issues, merged pull requests, repository READMEs, and curated documentation sites with Firecrawl Developer. Always use this skill for any programming question whose answer belongs in a primary source rather than a general web page.
+description: Search code repositories, merged pull requests, issues, READMEs, and documentation. Use this for those sources.
 ---
 
 # Firecrawl Developer Index

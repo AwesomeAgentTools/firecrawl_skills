@@ -30,6 +30,8 @@ npx skills add firecrawl/skills
 | [`firecrawl-build-scrape`](./skills/firecrawl-build-scrape)         | Integrate `/scrape` for single-page extraction                          | Authored here |
 | [`firecrawl-build-search`](./skills/firecrawl-build-search)         | Integrate `/search` for discovery-first workflows                       | Authored here |
 | [`firecrawl-build-interact`](./skills/firecrawl-build-interact)     | Integrate `/interact` for clicks, forms, and dynamic flows after scrape | Authored here |
+| [`firecrawl-research-index`](./skills/firecrawl-research-index)     | Find papers in the research paper index — biomedical and life-science literature (PubMed, bioRxiv, medRxiv) plus arXiv preprints | Authored here |
+| [`firecrawl-developer-index`](./skills/firecrawl-developer-index)   | Answer developer questions from issues, pull requests, READMEs, and documentation pages | Authored here |
 
 ## MCP Server
 
@@ -120,7 +122,7 @@ This repo does not try to duplicate:
 - terminal flags and output handling rules
 - editor setup flows
 
-If a task is "search the web for me right now", "scrape this URL during the session", "find papers", or "answer a library/API question from issues and docs", use the CLI skills (already installed alongside these build skills). The developer-index and research-index session skills live in [`firecrawl/cli`](https://github.com/firecrawl/cli).
+If a task is "search the web for me right now" or "scrape this URL during the session", use the CLI skills (already installed alongside these build skills).
 If a task is "add Firecrawl to this codebase", use the build skills in this repo.
 
 ## License

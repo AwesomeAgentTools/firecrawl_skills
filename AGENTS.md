@@ -1,71 +1,23 @@
-# Firecrawl Skills Repo
+# Firecrawl Skills Catalog
 
-Distribution repo for Firecrawl agent skills focused on the application-integration path.
+Read-only distribution catalog for all Firecrawl agent skills. **Every skill directory here is a CI-synced mirror — do not edit skills in this repo.**
 
-## Safe to edit
+## Layout and sources
 
-All current skills in this repo are authored here:
+- `skills/cli/` — mirror of `firecrawl/cli` `skills/` (CLI skills + the research/developer index skills)
+- `skills/build/` — mirror of the `firecrawl` monorepo `skills/`
+- `skills/workflows/` — mirror of `firecrawl/firecrawl-workflows` `skills/`
 
-- `skills/firecrawl-build/`
-- `skills/firecrawl-build-onboarding/`
-- `skills/firecrawl-build-scrape/`
-- `skills/firecrawl-build-search/`
-- `skills/firecrawl-build-interact/`
-- `skills/firecrawl-research-index/`
-- `skills/firecrawl-developer-index/`
+Only repo metadata is authored here: `.cursor-plugin/`, `.claude-plugin/`, `.codex-plugin/`, `README.md`, `AGENTS.md`, `.mcp.json`, `mcp.json`, `.github/`.
 
-Plugin metadata and top-level docs are also safe to edit:
+## Routing rule
 
-- `.cursor-plugin/`
-- `.claude-plugin/`
-- `.codex-plugin/`
-- `README.md`
-- `AGENTS.md`
-- `.mcp.json`
-- `mcp.json`
+CLI skills (including the research/developer index skills) → PR `firecrawl/cli`. Build/SDK skills → PR `firecrawl` (monorepo, `skills/`). Workflow skills → PR `firecrawl/firecrawl-workflows`. Never PR skill content against this catalog — CI overwrites it on the next sync.
 
 ## Intent
 
-Prefer these skills when the task is:
+Use the skills here when the task is:
 
-- adding Firecrawl to a codebase
-- choosing between `/scrape`, `/search`, and `/interact`
-- choosing between `/search` and the research paper index or the developer index, which `/search` does not query
-- getting `FIRECRAWL_API_KEY` into `.env`
-- selecting SDKs or REST patterns for product code
-
-Do not use this repo as the primary source for:
-
-- one-off web research
-- ad hoc scraping during the current coding session
-- terminal command reference
-
-Those workflows use the CLI skills, which are installed alongside these
-build skills by the same `firecrawl init` command.
-
-## Authoring Rules
-
-- Keep each `SKILL.md` concise and trigger-oriented.
-- Lead with "use this when..." guidance.
-- Favor endpoint names in slash notation: `/scrape`, `/search`, `/interact`.
-- Keep CLI references short and defer to `firecrawl/cli` instead of duplicating command manuals.
-- Treat [`https://www.firecrawl.dev/agent-onboarding/SKILL.md`](https://www.firecrawl.dev/agent-onboarding/SKILL.md) as the canonical source for the two-path framing.
-
-## Coverage Priority
-
-Current priority order:
-
-1. `/scrape`
-2. `/search`
-3. `/interact`
-
-## Repo Shape
-
-Expected layout:
-
-- `skills/<skill-name>/SKILL.md` for the skill itself
-- `skills/<skill-name>/references/` for deeper docs and recipes
-- plugin metadata under `.cursor-plugin/`, `.claude-plugin/`, and `.codex-plugin/`
-- top-level docs in `README.md` and this file
-
-Keep supporting references one level deep.
+- live web work during a session, or querying the research paper / developer indexes (CLI skills)
+- adding Firecrawl to a codebase, choosing between `/scrape`, `/search`, and `/interact`, getting `FIRECRAWL_API_KEY` into `.env` (build skills)
+- end-to-end recipes like lead gen, deep research, SEO audits (workflow skills)

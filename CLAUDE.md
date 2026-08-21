@@ -1,14 +1,9 @@
 # Firecrawl Skills
 
-This repo is for Firecrawl build and application-integration skills.
+Read-only distribution catalog of Firecrawl agent skills. Every directory under `skills/` is CI-synced from its source repo:
 
-- Use these skills when building product code that calls Firecrawl APIs.
-- Use `firecrawl/cli` for live web tasks performed through the terminal during an agent session.
+- `skills/cli/` — CLI skills + research/developer index skills (source: `firecrawl/cli`)
+- `skills/build/` — app-integration skills (source: the `firecrawl` monorepo)
+- `skills/workflows/` — end-to-end session recipes (source: `firecrawl/firecrawl-workflows`)
 
-Keep this repo focused on the app-integration path from the onboarding skill:
-
-1. get `FIRECRAWL_API_KEY` into the project
-2. choose the right endpoint
-3. wire Firecrawl into code
-
-Prioritize `/scrape`, `/search`, and `/interact`.
+Never edit skills here — PR the source repo. See `AGENTS.md` for the routing rule.

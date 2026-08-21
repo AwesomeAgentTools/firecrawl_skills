@@ -16,7 +16,7 @@ Without `-y` this opens an interactive picker over the whole catalog. Install a 
 npx skills add firecrawl/skills --skill firecrawl-build
 ```
 
-For CLI onboarding (installs the Firecrawl CLI plus the CLI skills, with optional workflow skills):
+For CLI onboarding (installs the Firecrawl CLI plus the core skills, with optional workflow skills):
 
 ```bash
 npx -y firecrawl-cli@latest init
@@ -26,24 +26,24 @@ npx -y firecrawl-cli@latest init
 
 | Category | Path | What it's for | Source of truth |
 |---|---|---|---|
-| CLI | [`skills/cli/`](./skills/cli) | Live web work during an agent session (search, scrape, crawl, interact from the terminal), plus the research paper index and developer index skills | [`firecrawl/cli`](https://github.com/firecrawl/cli/tree/main/skills) |
+| Core | [`skills/core/`](./skills/core) | The Firecrawl primitives for live web work during an agent session (search, scrape, crawl, interact — via the CLI or MCP), plus the research paper index and developer index skills | [`firecrawl/cli`](https://github.com/firecrawl/cli/tree/main/skills) |
 | Build | [`skills/build/`](./skills/build) | Integrating Firecrawl APIs into product code: SDKs, REST, endpoint selection, API keys | [`firecrawl` monorepo `skills/`](https://github.com/firecrawl/firecrawl/tree/main/skills) |
 | Workflows | [`skills/workflows/`](./skills/workflows) | End-to-end session recipes: lead gen, deep research, SEO audit, knowledge bases, and more | [`firecrawl/firecrawl-workflows`](https://github.com/firecrawl/firecrawl-workflows) |
 
 ## Contributing: where does my PR go?
 
-> **CLI skills (including the research/developer index skills) → PR [`firecrawl/cli`](https://github.com/firecrawl/cli). Build/SDK skills → PR the [`firecrawl`](https://github.com/firecrawl/firecrawl) monorepo (`skills/`). Workflow skills → PR [`firecrawl/firecrawl-workflows`](https://github.com/firecrawl/firecrawl-workflows). Never PR this catalog — CI overwrites every directory on the next sync.**
+> **Core skills (including the research/developer index skills) → PR [`firecrawl/cli`](https://github.com/firecrawl/cli). Build/SDK skills → PR the [`firecrawl`](https://github.com/firecrawl/firecrawl) monorepo (`skills/`). Workflow skills → PR [`firecrawl/firecrawl-workflows`](https://github.com/firecrawl/firecrawl-workflows). Never PR this catalog — CI overwrites every directory on the next sync.**
 
 ## Skills
 
-### CLI (`skills/cli/`)
+### Core (`skills/core/`)
 
 Skills that teach agents the [Firecrawl CLI](https://github.com/firecrawl/cli) for live web work — `firecrawl`, `firecrawl-scrape`, `firecrawl-search`, `firecrawl-crawl`, `firecrawl-map`, `firecrawl-interact`, `firecrawl-agent`, `firecrawl-monitor`, `firecrawl-parse`, `firecrawl-download` — plus the index skills backing the `firecrawl research` and `firecrawl developer` commands:
 
 | Skill | Description |
 |---|---|
-| [`firecrawl-research-index`](./skills/cli/firecrawl-research-index) | Find papers in the research paper index — biomedical and life-science literature (PubMed, bioRxiv, medRxiv) plus arXiv preprints |
-| [`firecrawl-developer-index`](./skills/cli/firecrawl-developer-index) | Answer developer questions from issues, pull requests, READMEs, and documentation pages |
+| [`firecrawl-research-index`](./skills/core/firecrawl-research-index) | Find papers in the research paper index — biomedical and life-science literature (PubMed, bioRxiv, medRxiv) plus arXiv preprints |
+| [`firecrawl-developer-index`](./skills/core/firecrawl-developer-index) | Answer developer questions from issues, pull requests, READMEs, and documentation pages |
 
 ### Build (`skills/build/`)
 
@@ -65,7 +65,7 @@ The plugin includes Firecrawl MCP configuration for the official [Firecrawl MCP 
 
 ## Plugins
 
-This repo serves as a plugin for multiple platforms, bundling the CLI and build skills (workflows are session recipes, not editor-integration material):
+This repo serves as a plugin for multiple platforms, bundling the core and build skills (workflows are session recipes, not editor-integration material):
 
 - **Claude Code** - `.claude-plugin/`
 - **Cursor** - `.cursor-plugin/`
@@ -80,8 +80,8 @@ Get your API key at [firecrawl.dev/app](https://www.firecrawl.dev/app). If you d
 
 ## Which skills do I need?
 
-- **"Search/scrape the web for me right now, during this session"** → CLI skills (`skills/cli/`)
-- **"Query published research papers or developer docs indexes"** → index skills (`skills/cli/`)
+- **"Search/scrape the web for me right now, during this session"** → core skills (`skills/core/`)
+- **"Query published research papers or developer docs indexes"** → index skills (`skills/core/`)
 - **"Add Firecrawl to this codebase"** → build skills (`skills/build/`)
 - **"Run an end-to-end task like lead gen or deep research"** → workflow skills (`skills/workflows/`)
 

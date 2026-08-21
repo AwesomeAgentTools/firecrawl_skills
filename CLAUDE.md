@@ -2,7 +2,7 @@
 
 Read-only distribution catalog of Firecrawl agent skills. Every directory under `skills/` is CI-synced from its source repo:
 
-- `skills/cli/` — CLI skills + research/developer index skills (source: `firecrawl/cli`)
+- `skills/core/` — core skills (Firecrawl primitives via CLI/MCP) + research/developer index skills (source: `firecrawl/cli`)
 - `skills/build/` — app-integration skills (source: the `firecrawl` monorepo)
 - `skills/workflows/` — end-to-end session recipes (source: `firecrawl/firecrawl-workflows`)
 

@@ -1,10 +1,9 @@
 # Firecrawl Skills
 
-Full catalog of Firecrawl agent skills, organized under `skills/` by category:
+Read-only distribution catalog of Firecrawl agent skills. Every directory under `skills/` is CI-synced from its source repo:
 
-- `skills/cli/` — CLI skills for live web work (mirror of `firecrawl/cli`; do not edit here)
-- `skills/build/` — app-integration skills (mirror of the `firecrawl` monorepo; do not edit here)
-- `skills/workflows/` — end-to-end session recipes (authored here)
-- `skills/reference/` — research paper index and developer index skills (authored here)
+- `skills/cli/` — CLI skills + research/developer index skills (source: `firecrawl/cli`)
+- `skills/build/` — app-integration skills (source: the `firecrawl` monorepo)
+- `skills/workflows/` — end-to-end session recipes (source: `firecrawl/firecrawl-workflows`)
 
-See `AGENTS.md` for the routing rule and authoring guidance.
+Never edit skills here — PR the source repo. See `AGENTS.md` for the routing rule.

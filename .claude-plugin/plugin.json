@@ -22,6 +22,8 @@
     "./skills/cli/firecrawl-monitor",
     "./skills/cli/firecrawl-parse",
     "./skills/cli/firecrawl-download",
+    "./skills/cli/firecrawl-research-index",
+    "./skills/cli/firecrawl-developer-index",
     "./skills/build/firecrawl-build",
     "./skills/build/firecrawl-build-onboarding",
     "./skills/build/firecrawl-build-scrape",

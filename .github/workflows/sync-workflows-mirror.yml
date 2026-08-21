@@ -8,9 +8,12 @@ on:
   push:
     branches: [main]
     paths:
-      - 'skills/workflows/**'
-      - '.github/workflows/sync-workflows-mirror.yml'
+      - "skills/workflows/**"
+      - ".github/workflows/sync-workflows-mirror.yml"
   workflow_dispatch:
+
+permissions:
+  contents: read
 
 concurrency:
   group: workflows-mirror-sync
